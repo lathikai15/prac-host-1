@@ -8,7 +8,7 @@ function App() {
 
   // 🔹 GET data
   const loadData = async () => {
-    const res = await axios.get("http://localhost:5000/users");
+    const res = await axios.get("https://prac-host-1.onrender.com/users");
     setData(res.data);
   };
 
@@ -18,7 +18,7 @@ function App() {
 
   // 🔹 ADD user
   const addUser = async () => {
-    await axios.post("http://localhost:5000/users", {
+    await axios.post("https://prac-host-1.onrender.com/users", {
       name,
       email,
     });
@@ -31,13 +31,13 @@ function App() {
     <div style={{ padding: "20px" }}>
       <h2>Simple React CRUD</h2>
 
-      {/* Input */}
       <input
         placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <br /><br />
+
       <input
         placeholder="Email"
         value={email}
@@ -49,7 +49,6 @@ function App() {
 
       <hr />
 
-      {/* Display */}
       {data.map((item) => (
         <div key={item.id}>
           {item.name} - {item.email}
